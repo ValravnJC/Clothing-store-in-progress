@@ -14,6 +14,8 @@ const SignInForm = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email,password } = formFields;
+
+
     const handleSubit = async (e) => {
         e.preventDefault();
         try{
@@ -34,8 +36,9 @@ const SignInForm = () => {
     }
 
     const signInWithGoogle = async () => {
-        const {user}  = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
+    
+        
     }
     
     
