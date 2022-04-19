@@ -6,7 +6,8 @@ import { useContext } from "react";
 
 const CartIcon = () =>{
 
-    const {cartClicked,setCartClicked} = useContext(CartContext)
+    const {cartClicked,setCartClicked, cartItems} = useContext(CartContext)
+    const count = cartItems.reduce((prev,curr) => prev + curr.quantity, 0)
 
     const cartClickHandler = () =>{    
         setCartClicked(!cartClicked)
@@ -16,7 +17,7 @@ const CartIcon = () =>{
     return (
     <div onClick={cartClickHandler} className="cart-icon-container">
         <ShoppingIcon  className="shopping-icon"/>
-        <span className="item-count">0</span>
+        <span className="item-count">{count}</span>
     </div>
   );
 }
