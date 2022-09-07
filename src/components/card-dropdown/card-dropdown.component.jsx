@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 
 const CardDropdown = () => {
 
-    const {cartItems,setCartClicked} = useContext(CartContext);
+    const {cartItems, setIsCartOpen} = useContext(CartContext);
 
     const hideCart = () => {
-        setCartClicked(false)
+        setIsCartOpen(false)
     }
     
     return (

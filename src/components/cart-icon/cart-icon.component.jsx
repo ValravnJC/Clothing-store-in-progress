@@ -6,11 +6,11 @@ import { useContext } from "react";
 
 const CartIcon = () =>{
 
-    const {cartClicked,setCartClicked, cartItems} = useContext(CartContext)
+    const {cartClicked,setIsCartOpen, cartItems} = useContext(CartContext)
     const count = cartItems.reduce((prev,curr) => prev + curr.quantity, 0)
 
     const cartClickHandler = () =>{    
-        setCartClicked(!cartClicked)
+        setIsCartOpen(!cartClicked)
         console.log(cartClicked);
     }
 
