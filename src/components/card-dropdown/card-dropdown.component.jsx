@@ -1,17 +1,19 @@
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 import "./card-dropdown.styles.scss"
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
+import { selectCartIsOpen, selectCartItems } from "../../store/cart/cart.selector"; 
 import { Link } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setIsCartOpen } from "../../store/cart/cart.actions";
 
 const CardDropdown = () => {
 
-    const {cartItems, setIsCartOpen} = useContext(CartContext);
+    const dispatch = useDispatch();
+    const cartItems = useSelector(selectCartItems);
+    const cartClicked = useSelector(selectCartIsOpen) 
 
     const hideCart = () => {
-        setIsCartOpen(false)
+        dispatch(setIsCartOpen(!cartClicked));
     }
     
     return (
